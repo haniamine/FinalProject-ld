@@ -3,17 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Fashion Mom</title>
 	<link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-</head>
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/bootstrap.css"></head>
 <body>
 
-<header>
-	<div class="container">
+<header id="header">
+	<div  class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-4 col-sm-3 name-container">
-				<a href="index.html" class="site-name">Preganant</a>
+				<a href="index.html" class="site-name">Fashion Mum</a>
 			</div>
 			<div class="col-lg-6 col-md-8 col-sm-9">
 				<div class="mobile-menu-icon">
@@ -21,9 +21,9 @@
             </div>
 				<nav class="nav-bar">
 				<ul>
-					<li><a href="index.html">Page 1</a></li>
-					<li><a href="page2.html" class="active">Page 2</a></li>
-					<li><a href="page3.html">Page 3</a></li>
+					<li><a href="index.html" >Home</a></li>
+					<li><a href="page2.html" class="active">Test</a></li>
+					<li><a href="page3.html">Store</a></li>
 				</ul>
 			</nav>
 			</div>
@@ -31,22 +31,41 @@
 	</div>
 </header>
 
+<main class="container" style="margin-top: 20px;">
+	<h1>Test page</h1>
+
+	<div style="margin: 20px;">
+		<h3>Header</h3>
+		<button class="btn btn-success" onclick="addHeader()">Add Header</button>
+		<button class="btn btn-danger"  onclick="deleteHeader()">Delete Header</button>
+	</div>
+
+	<div style="margin: 20px;">
+		<h3>Footer</h3>
+		<button class="btn btn-success"  onclick="addFooter()">Add Footer</button>
+		<button class="btn btn-danger"  onclick="deleteFooter()">Delete Footer</button>
+	</div>
+
+</main>
+
+<script>
+	function addHeader(){
+		document.getElementById('header').style.display = "block";
+	}
+	function deleteHeader(){
+		document.getElementById('header').style.display = "none";
+	}
+	function addFooter(){
+		document.getElementById('footer').style.display = "block";
+	}
+	function deleteFooter(){
+		document.getElementById('footer').style.display = "none";
+	}
+</script>
 
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-
-
-
-
-
-
-<footer class="black-bg">
+<footer id="footer" class="black-bg">
 		<div class="container">
 			<div class="row">
 				<p class="copyright-text">Copyright © 2020 - <b>Elkouhen Aicha</b> - Final Project</p>
