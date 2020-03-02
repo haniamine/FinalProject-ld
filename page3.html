@@ -43,11 +43,12 @@
 				<img src="./img/p1.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h2 class="card-title">Jacket</h2>
-					<p class="card-text">the best jacket for moms</p>
+					<p class="card-text">the best jacket for future moms</p>
 					<h2 class="card-title font-weight-bold">20€</h2>
 
 					<div class="m-3">
-					<button class="btn btn-danger">Ajouter Au panier</button>
+						<button class="btn btn-success" id="add-1" onclick="addToCart(1)">Add to cart</button>
+						<button class="btn btn-danger" id="rem-1" onclick="removeFromCart(1)" style="display: none;" >Remove From cart</button>
 					</div>
 				</div>
 			</div>
@@ -56,14 +57,15 @@
 		<!-- Product 2-->
 		<div class="col-6">
 			<div class="card text-center col-10">
-				<img src="./img/p1.jpg" class="card-img-top" alt="...">
+				<img src="./img/p2.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
-					<h2 class="card-title">Jacket</h2>
-					<p class="card-text">the best jacket for moms</p>
+					<h2 class="card-title">Suit</h2>
+					<p class="card-text">the best suit for future moms</p>
 					<h2 class="card-title font-weight-bold">20€</h2>
 
 					<div class="m-3">
-					<button class="btn btn-danger">Ajouter Au panier</button>
+						<button class="btn btn-success" id="add-2" onclick="addToCart(2)">Add to cart</button>
+						<button class="btn btn-danger" id="rem-2" onclick="removeFromCart(2)" style="display: none;" >Remove From cart</button>
 					</div>
 				</div>
 			</div>
@@ -72,14 +74,15 @@
 		<!-- Product 3-->
 		<div class="col-6">
 			<div class="card text-center col-10">
-				<img src="./img/p1.jpg" class="card-img-top" alt="...">
+				<img src="./img/p3.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
-					<h2 class="card-title">Jacket</h2>
-					<p class="card-text">the best jacket for moms</p>
-					<h2 class="card-title font-weight-bold">20€</h2>
+					<h2 class="card-title">Jeans</h2>
+					<p class="card-text">the best jeans for future moms</p>
+					<h2 class="card-title font-weight-bold">25€</h2>
 
 					<div class="m-3">
-					<button class="btn btn-danger">Ajouter Au panier</button>
+						<button class="btn btn-success" id="add-3" onclick="addToCart(3)">Add to cart</button>
+						<button class="btn btn-danger" id="rem-3" onclick="removeFromCart(3)" style="display: none;" >Remove From cart</button>
 					</div>
 				</div>
 			</div>
@@ -88,34 +91,76 @@
 		<!-- Product 4-->
 		<div class="col-6">
 			<div class="card text-center col-10">
-				<img src="./img/p1.jpg" class="card-img-top" alt="...">
+				<img src="./img/p4.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
-					<h2 class="card-title">Jacket</h2>
-					<p class="card-text">the best jacket for moms</p>
-					<h2 class="card-title font-weight-bold">20€</h2>
+					<h2 class="card-title">Swimsuit</h2>
+					<p class="card-text">the best swimsuit for future moms</p>
+					<h2 class="card-title font-weight-bold">30€</h2>
 
 					<div class="m-3">
-					<button class="btn btn-danger">Ajouter Au panier</button>
+						<button class="btn btn-success" id="add-4" onclick="addToCart(4)">Add to cart</button>
+						<button class="btn btn-danger" id="rem-4" onclick="removeFromCart(4)" style="display: none;" >Remove From cart</button>
 					</div>
 				</div>
 			</div>
 		</div>
+	  </div>
 
-  	</div>
+
+	  <div class="container">
+		<hr> <h1>Total Cart Price: <span id="price">0</span>€ <button class="btn btn-primary mb-2 ml-4" onclick="checkout()">Checkout</button></h1> 
+	  </div>
 </main>
 
 
 
+<script>
+	function addToCart(i){
+		price = new Array(20,20,25,30)
+		total = document.getElementById("price").innerHTML
 
+		btn_add= "add-"+i
+		btn_rem= "rem-"+i
+		document.getElementById(btn_add).style.display = "none"
+		document.getElementById(btn_rem).style.display = "inline";
+
+		total = parseInt(total) + price[i-1]
+		document.getElementById("price").innerHTML=total
+	}
+	function removeFromCart(i){
+		price = new Array(20,20,25,30)
+		total = document.getElementById("price").innerHTML
+
+		btn_add= "add-"+i
+		btn_rem= "rem-"+i
+		document.getElementById(btn_rem).style.display = "none"
+		document.getElementById(btn_add).style.display = "inline";
+
+		total = parseInt(total) - price[i-1]
+		document.getElementById("price").innerHTML=total
+	}
+	function checkout(){
+		total = document.getElementById("price").innerHTML
+
+		for (i = 1; i < 5; i++) {
+			btn_add= "add-"+i
+			btn_rem= "rem-"+i
+			document.getElementById(btn_rem).style.display = "none"
+			document.getElementById(btn_add).style.display = "inline";
+		}
+
+		document.getElementById("price").innerHTML=0
+		alert("Your order has been confirmed for a total of "+total+" €")
+	}
+</script>
 
 
 
 <footer class="black-bg">
 		<div class="container">
-			<div class="row">
 				<p class="copyright-text">Copyright © 2020 - <b>Elkouhen Aicha</b> - Final Project</p>
 			</div>
-		</div>
+
 </footer>
 
 </body>
